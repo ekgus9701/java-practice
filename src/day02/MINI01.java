@@ -10,10 +10,10 @@ public class MINI01 {
     sonny.buyPhone();
     Person beckham = new Person("베컴", 2, "Apple");
     beckham.buyPhone();
-    Phone sonnysPhone = new Phone("삐비빅");
+    SamsungPhone sonnysPhone = new SamsungPhone("삐비빅");
     sonny.turnOn(sonnysPhone);
 
-    Phone beckhamsPhone = new Phone("bbeep");
+    ApplePhone beckhamsPhone = new ApplePhone("bbeep");
     beckham.turnOn(beckhamsPhone);
 
   }
@@ -35,16 +35,14 @@ class Person {
 
   void buyPhone() {
     if (this.nationality == 1) {
-      System.out.println(this.name + "가 " + this.phoneType + " 핸드폰을 샀습니다.");
+      System.out.println("국내 선수 " + this.name + "가 " + this.phoneType + " 핸드폰을 샀습니다.");
 
     }
     if (this.nationality == 2) {
-      System.out.println(this.name + "도 " + this.phoneType + " 핸드폰을 샀습니다.");
+      System.out.println("해외 선수 " + this.name + "도 " + this.phoneType + " 핸드폰을 샀습니다.");
 
     }
     this.havePhone = true;
-
-
   }
 
 
