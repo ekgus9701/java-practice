@@ -69,14 +69,14 @@ class Person {
 class Phone {
 
   private String sound;
-  private boolean on;
+  private boolean isOn;
 
   Phone(String sound) {
     this.sound = sound;
   }
 
   boolean getOn() {
-    return this.on;
+    return this.isOn;
   }
 
   void turnOn() {
