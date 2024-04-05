@@ -13,19 +13,19 @@ public class EX05 {
     Netflix netflix = new Netflix();
     Tving tving = new Tving();
 
-    OTT.play(netflix);
-    Netflix.finish();
+    netflix.play();
+    netflix.finish();
 
-    OTT.play(tving);
-    Tving.finish();
+    tving.play();
+    tving.finish();
 
   }
 }
 
 class OTT {
 
-  static void play(OTT ott) {
-    ott.printOpening();
+  void play() {
+    printOpening();
     System.out.println("영상 시작");
   }
 
@@ -33,7 +33,7 @@ class OTT {
 
   }
 
-  static void finish() {
+  void finish() {
     System.out.println("다 봤다~");
   }
 
@@ -41,6 +41,7 @@ class OTT {
 
 class Netflix extends OTT {
 
+  @Override
   void printOpening() {
     System.out.println("넷플");
   }
@@ -48,6 +49,7 @@ class Netflix extends OTT {
 
 class Tving extends OTT {
 
+  @Override
   void printOpening() {
     System.out.println("티빙");
   }
