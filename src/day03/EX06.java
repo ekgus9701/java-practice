@@ -22,6 +22,7 @@ public class EX06 {
   }
 }
 
+
 class Person {
 
   ApplePhone applePhone;
@@ -30,6 +31,7 @@ class Person {
   void buyPhone(ApplePhone applePhone) {
     this.applePhone = applePhone;
   }
+
 
   void useKakaotalk() {
     if (applePhone.getIsOn()) {
@@ -50,7 +52,7 @@ class Person {
 
 }
 
-class ApplePhone {
+class Phone {
 
   private final int BATTERY_CAPACITY = 100; //배터리 최대 용량, 상수로 표현
   private int batteryStatus = 70;
@@ -58,6 +60,18 @@ class ApplePhone {
 
   boolean getIsOn() {
     return isOn;
+  }
+
+  void setIsOn(boolean value) {
+    this.isOn = value;
+  }
+
+  int getBatteryStatus() {
+    return batteryStatus;
+  }
+
+  void setBatteryStatus(int num) {
+    this.batteryStatus += num;
   }
 
   void charge() {
@@ -73,13 +87,20 @@ class ApplePhone {
     }
     System.out.println(batteryStatus + "%로 충전되었습니다!");
   }
+}
+
+class ApplePhone extends Phone {
+
 
   void operateKakaotalk() {
-    if (isOn) {
+    if (this.getIsOn()) {
+
+      int batteryStatus = this.getBatteryStatus();
+
       if (batteryStatus > 5) {
-        batteryStatus -= 5;
+        setBatteryStatus(-5);
       } else {
-        batteryStatus = 0;
+        setBatteryStatus(-batteryStatus);
         turnOff();
       }
     }
@@ -87,27 +108,78 @@ class ApplePhone {
   }
 
   void operateYoutube() {
+    int batteryStatus = this.getBatteryStatus();
     if (batteryStatus > 10) {
-      batteryStatus -= 10;
+      setBatteryStatus(-10);
     } else {
-      batteryStatus = 0;
+      setBatteryStatus(-batteryStatus);
       turnOff();
     }
   }
 
   void checkBattery() {
+    int batteryStatus = this.getBatteryStatus();
     System.out.println(batteryStatus + "% 입니다.");
   }
 
   void turnOn() {
-    if (!isOn) {
-      isOn = true;
+
+    if (!this.getIsOn()) {
+      setIsOn(true);
     }
   }
 
   void turnOff() {
-    if (isOn) {
-      isOn = false;
+    if (this.getIsOn()) {
+      setIsOn(false);
+    }
+  }
+
+}
+
+class SamsungPhone extends Phone {
+
+
+  void operateKakaotalk() {
+    if (this.getIsOn()) {
+
+      int batteryStatus = this.getBatteryStatus();
+
+      if (batteryStatus > 10) {
+        setBatteryStatus(-10);
+      } else {
+        setBatteryStatus(-batteryStatus);
+        turnOff();
+      }
+    }
+
+  }
+
+  void operateYoutube() {
+    int batteryStatus = this.getBatteryStatus();
+    if (batteryStatus > 15) {
+      setBatteryStatus(-15);
+    } else {
+      setBatteryStatus(-batteryStatus);
+      turnOff();
+    }
+  }
+
+  void checkBattery() {
+    int batteryStatus = this.getBatteryStatus();
+    System.out.println(batteryStatus + "% 입니다.");
+  }
+
+  void turnOn() {
+
+    if (!this.getIsOn()) {
+      setIsOn(true);
+    }
+  }
+
+  void turnOff() {
+    if (this.getIsOn()) {
+      setIsOn(false);
     }
   }
 
